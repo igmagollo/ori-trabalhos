@@ -137,6 +137,8 @@ void intercala_files(FILE** arquivos, int nfiles, char* base_name)
 	{
 		// Reabastecimento inicial
 		buffers_lengths[i] = resupply_file_buffer(arquivos[i], buffers[i]);
+		if ( buffers_lengths[i] == 0 )
+			buffers_lengths[i] = -1;
 	}
 
 	index = get_menor(buffers, buffers_lengths, nfiles);
